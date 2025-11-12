@@ -76,3 +76,4 @@ Includes social media links to LinkedIn and GitHub.
 Footer
 
 Contains additional links to LinkedIn and GitHub.
+<img width="741" height="897" alt="allyanportfolio" src="https://github.com/user-attachments/assets/28666af0-08b1-4e3f-8c69-78e9cdd483f3" />
