@@ -90,4 +90,6 @@ Once you're ready, host your site on a static platform like GitHub Pages, Netlif
 
 Ensure image paths are correct when uploading to your hosting platform.
 <img width="741" height="897" alt="allyanportfolio" src="https://github.com/user-attachments/assets/28666af0-08b1-4e3f-8c69-78e9cdd483f3" />
+
+
 Access by this link :https://magical-cobbler-be986c.netlify.app/
