@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe - Portfolio</title>
+    <meta name="description" content="Modern responsive portfolio showcasing web development projects and skills">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#3B82F6",
+                        secondary: "#1F2937",
+                        accent: "#10B981",
+                        dark: "#111827",
+                        "dark-light": "#1F2937"
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="min-h-screen bg-dark text-white font-inter">
+    <!-- Navigation -->
+    <header class="fixed w-full bg-dark/90 backdrop-blur-sm z-50 border-b border-gray-800">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold text-primary">My Portfolio</a>
+
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-300 hover:text-white transition-colors duration-300">Home</a>
+                    <a href="#about" class="text-gray-300 hover:text-white transition-colors duration-300">About</a>
+                    <a href="#skills" class="text-gray-300 hover:text-white transition-colors duration-300">Skills</a>
+                    <a href="#projects"
+                        class="text-gray-300 hover:text-white transition-colors duration-300">Projects</a>
+                    <a href="#contact" class="text-gray-300 hover:text-white transition-colors duration-300">Contact</a>
+                </div>
+
+                <button class="md:hidden text-gray-300">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                   <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
+    Hi, I'm <span class="text-primary">Allyan Younis</span>
+</h1>
+
+<style>
+    /* Keyframes for fade-in animation */
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Apply the animation to the text */
+    .animate-fade-in {
+        animation: fadeIn 1s ease-out;
+    }
+</style>
+
+                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                        Detail-oriented Computer Science graduate with hands-on experience in web development, machine
+                        learning, and AI. Skilled in Python, SQL, and data analysis, with a focus on Generative AI, Crew
+                        AI, and Agentic AI. Experienced with AWS (EC2, S3, & Security Groups) and DevOps tools,
+                        including CI/CD pipelines (Jenkins & GitHub Actions) and Docker. Eager to contribute to
+                        impactful projects and grow in collaborative tech environments
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button
+                            class="bg-primary hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105">
+                            View Projects
+                        </button>
+
+                    </div>
+                </div>
+                <div class="relative">
+                    <div
+                        class="w-80 h-80 mx-auto bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
+                        <img src="https://picsum.photos/300?random=1" alt="John Doe - Full Stack Developer"
+                            class="w-76 h-76 rounded-full object-cover border-4 border-dark" loading="lazy" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-dark-light px-6">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">About Me</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+
+
+                   <img src="images/pic.png" alt="Your Image">
+                    
+                    
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Experience</h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        I completed an internship at T8 Launchpad, where I gained hands-on experience in LLM, Langchain,
+                        deep
+                        learning, and DevOps. During my time there, I worked on a variety of projects that helped me
+                        enhance my
+                        technical skills while contributing to the team's success. I was actively involved in developing
+                        solutions
+                        leveraging modern AI and cloud technologies, which allowed me to gain practical insights into
+                        real-world
+                        applications and the collaborative nature of tech-driven teams.
+                    </p>
+                    <p class="text-gray-300 mb-8 leading-relaxed">
+                        I'm passionate about clean code, modern design patterns, and staying up-to-date with the latest
+                        technologies. When I'm not coding, you can find me contributing to open-source projects or
+                        exploring new frameworks.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center p-4 bg-dark rounded-lg">
+                            <div class="text-3xl font-bold text-primary mb-2">50+</div>
+                            <div class="text-gray-400">Projects Completed</div>
+                        </div>
+                        <div class="text-center p-4 bg-dark rounded-lg">
+                            <div class="text-3xl font-bold text-accent mb-2">5+</div>
+                            <div class="text-gray-400">Years Experience</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Skills & Technologies</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Python & FastAPI -->
+                <div
+                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300">
+                    <i class="fab fa-python text-4xl text-blue-400 mb-4"></i>
+                    <h3 class="font-semibold mb-2">Python & FastAPI</h3>
+                    <p class="text-gray-400 text-sm">Advanced</p>
+                </div>
+
+                <!-- Deep Learning ANN, CNN, RNN -->
+                <div
+                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300">
+                    <i class="fas fa-brain text-4xl text-orange-500 mb-4"></i>
+                    <h3 class="font-semibold mb-2">Deep Learning (ANN, CNN, RNN)</h3>
+                    <p class="text-gray-400 text-sm">Intermediate</p>
+                </div>
+
+                <!-- Python Libraries (Pandas, NumPy, Matplotlib, Seaborn) -->
+                <div
+                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300">
+                    <i class="fab fa-python text-4xl text-blue-400 mb-4"></i>
+                    <h3 class="font-semibold mb-2">Python Libraries</h3>
+                    <p class="text-gray-400 text-sm">Pandas, NumPy, Matplotlib, Seaborn</p>
+                </div>
+
+                <!-- Generative AI (LLM, Chatbots & RAG) -->
+                <div
+                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300">
+                    <i class="fas fa-robot text-4xl text-purple-500 mb-4"></i>
+                    <h3 class="font-semibold mb-2">Generative AI</h3>
+                    <p class="text-gray-400 text-sm">LLM, Chatbots & RAG</p>
+                </div>
+
+                <!-- Scikit-learn & TensorFlow -->
+                <div
+                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300">
+                    <i class="fab fa-python text-4xl text-green-500 mb-4"></i>
+                    <h3 class="font-semibold mb-2">Scikit-learn & TensorFlow</h3>
+                    <p class="text-gray-400 text-sm">Intermediate</p>
+                </div>
+
+                <!-- Git & GitHub -->
+                <div
+                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300">
+                    <i class="fab fa-git-alt text-4xl text-red-500 mb-4"></i>
+                    <h3 class="font-semibold mb-2">Git & GitHub</h3>
+                    <p class="text-gray-400 text-sm">Advanced</p>
+                </div>
+
+                <!-- MySQL -->
+                <div
+                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300">
+                    <i class="fas fa-database text-4xl text-blue-500 mb-4"></i>
+                    <h3 class="font-semibold mb-2">MySQL</h3>
+                    <p class="text-gray-400 text-sm">Intermediate</p>
+                </div>
+
+                <!-- AWS (EC2, S3 & Security) -->
+                <div
+                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300">
+                    <i class="fab fa-aws text-4xl text-yellow-500 mb-4"></i>
+                    <h3 class="font-semibold mb-2">AWS (EC2, S3 & Security)</h3>
+                    <p class="text-gray-400 text-sm">Intermediate</p>
+                </div>
+
+                <!-- Machine Learning (Supervised & Unsupervised Learning) -->
+                <div
+                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300">
+                    <i class="fas fa-brain text-4xl text-cyan-500 mb-4"></i>
+                    <h3 class="font-semibold mb-2">Machine Learning</h3>
+                    <p class="text-gray-400 text-sm">Supervised & Unsupervised Learning</p>
+                </div>
+
+                <!-- Langchain, LangGraph & Crew AI -->
+                <div
+                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300">
+                    <i class="fas fa-cogs text-4xl text-orange-600 mb-4"></i>
+                    <h3 class="font-semibold mb-2">Agentic AI Framework</h3>
+                    <p class="text-gray-400 text-sm">Langchain, LangGraph & Crew AI</p>
+                </div>
+
+                <!-- DevOps (CI/CD Pipelines) -->
+                <div
+                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300">
+                    <i class="fab fa-github text-4xl text-gray-500 mb-4"></i>
+                    <h3 class="font-semibold mb-2">DevOps & CI/CD Pipelines</h3>
+                    <p class="text-gray-400 text-sm">Jenkins, GitHub Actions</p>
+                </div>
+
+                <!-- VS Code & Google Colab (Docker) -->
+                <div
+                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300">
+                    <i class="fab fa-vuejs text-4xl text-green-600 mb-4"></i>
+                    <h3 class="font-semibold mb-2">Tools</h3>
+                    <p class="text-gray-400 text-sm">VS Code, Google Colab, Docker</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-dark-light px-6">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Featured Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div
+                    class="bg-dark rounded-xl overflow-hidden shadow-2xl hover:transform hover:scale-105 transition-all duration-300">
+                    <img src="images/youtube_chatbot.jpeg" alt="Your Image"
+                        class="w-full h-48 object-cover" loading="lazy" />
+                        
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Youtube Chatbot</h3>
+                        <p class="text-gray-400 mb-4">Made a YouTube chatbot using LangChain and Hugging Face API to answer any questions about YouTube videos with real-time updates, powered by an LLM model.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm">Python</span>
+                            <span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm">Langchain</span>
+                            <span class="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-sm">LLM model</span>
+                        </div>
+                       
+                    </div>
+                </div>
+
+                <div
+                    class="bg-dark rounded-xl overflow-hidden shadow-2xl hover:transform hover:scale-105 transition-all duration-300">
+                   <img src="images/university_chatbot.avif" alt="Your Image"
+                        class="w-full h-48 object-cover" loading="lazy" />
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">University Chatbot</h3>
+                        <p class="text-gray-400 mb-4">Developed a University Information System that answers any queries related to the university, leveraging LangChain and LLM models for intelligent responses.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full text-sm">Python</span>
+                            <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm">Langchain</span>
+                            <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-sm">GPT-3 model</span>
+                            <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-sm">Fastapi</span>
+                            <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-sm">React JS</span>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div
+                    class="bg-dark rounded-xl overflow-hidden shadow-2xl hover:transform hover:scale-105 transition-all duration-300">
+                     <img src="images/movie_recommend.png" alt="Your Image"
+                        class="w-full h-48 object-cover" loading="lazy" />
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Movie Recommendation System</h3>
+                        <p class="text-gray-400 mb-4">Built a Movie Recommendation System using KNN and LLM models, integrated with Streamlit for an interactive interface, all powered by Python.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full text-sm">Python</span>
+                            <span class="bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full text-sm">KNN</span>
+                            <span class="bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-sm">Machine Learning</span>
+                            <span class="bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full text-sm">LLM model</span>
+                            <span class="bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-sm">Kaggle dataset</span>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+             <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16"></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div
+                    class="bg-dark rounded-xl overflow-hidden shadow-2xl hover:transform hover:scale-105 transition-all duration-300">
+                    <img src="images/email.jpg" alt="Your Image"
+                        class="w-full h-48 object-cover" loading="lazy" />
+                        
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Email Spam Classification</h3>
+                        <p class="text-gray-400 mb-4">Developed an email spam classification model using KNN, Kaggle datasets, and entropy-based feature selection in Python.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm">Python</span>
+                            <span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm">Naive Bayes</span>
+                            <span class="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-sm">kaggle dataset</span>
+                             <span class="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-sm">Machine Learning</span>
+                        </div>
+                       
+                    </div>
+                </div>
+
+                <div
+                    class="bg-dark rounded-xl overflow-hidden shadow-2xl hover:transform hover:scale-105 transition-all duration-300">
+                   <img src="images/jenkins.png" alt="Your Image"
+                        class="w-full h-48 object-cover" loading="lazy" />
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">CI/CD pipeliine using Jenkins</h3>
+                        <p class="text-gray-400 mb-4">Developed a CI/CD pipeline using Jenkins to automate the deployment of a University Information System, integrating LangChain and LLM models for intelligent query responses.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full text-sm">Jenkins</span>
+                            <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm">EC2</span>
+                            <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-sm">AWS</span>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div
+                    class="bg-dark rounded-xl overflow-hidden shadow-2xl hover:transform hover:scale-105 transition-all duration-300">
+                     <img src="images/docker.png" alt="Your Image"
+                        class="w-full h-48 object-cover" loading="lazy" />
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Docker</h3>
+                        <p class="text-gray-400 mb-4">Utilized Docker to seamlessly transfer and deploy code across different PCs, ensuring consistent environments and efficient workflow.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Get In Touch</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Let's Work Together</h3>
+                    <p class="text-gray-300 mb-8 leading-relaxed">
+                        I'm always interested in new opportunities and exciting projects. Whether you have a question or
+                        just want to say hi, I'll try my best to get back to you!
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-4">
+                            <i class="fas fa-envelope text-primary text-xl"></i>
+                            <span class="text-gray-300">
+                                <a href="mailto:allyanyounis@gmail.com" class="text-gray-300">allyanyounis@gmail.com</a>
+                            </span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <i class="fas fa-phone text-accent text-xl"></i>
+                            <span class="text-gray-300">03290405968</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <i class="fas fa-map-marker-alt text-red-500 text-xl"></i>
+                            <span class="text-gray-300">129,B block,Military Account, Lahore</span>
+                        </div>
+                    </div>
+                    <div class="flex space-x-4 mt-8">
+                        <a href="#"
+                            class="bg-gray-800 hover:bg-gray-700 w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#"
+                            class="bg-gray-800 hover:bg-gray-700 w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-300">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#"
+                            class="bg-gray-800 hover:bg-gray-700 w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-dark-light p-8 rounded-xl">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-300 mb-2">Name</label>
+                            <input type="text" id="name"
+                                class="w-full bg-dark border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors duration-300"
+                                placeholder="Your Name">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-300 mb-2">Email</label>
+                            <input type="email" id="email"
+                                class="w-full bg-dark border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors duration-300"
+                                placeholder="your.email@example.com">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-300 mb-2">Message</label>
+                            <textarea id="message" rows="5"
+                                class="w-full bg-dark border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors duration-300"
+                                placeholder="Your message..."></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-primary hover:bg-blue-600 text-white py-3 rounded-lg font-medium transition-all duration-300">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-light border-t border-gray-800 py-8 px-6">
+        <div class="container mx-auto max-w-6xl text-center">
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="https://www.linkedin.com/in/allyan-younis-471231278/" class="text-gray-400 hover:text-primary transition-colors duration-300">
+                    <i class="fab fa-linkedin-in text-xl"></i>
+                </a>
+                <a href="https://github.com/AllyanSystumm" class="text-gray-400 hover:text-white transition-colors duration-300">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+                <!-- <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">
+                    <i class="fab fa-twitter text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-pink-500 transition-colors duration-300">
+                    <i class="fab fa-instagram text-xl"></i>
+                </a> -->
+            </div>
+            <p class="text-gray-400">
+                © 2024 John Doe. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Define navigation items
+        const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+        // Smooth scrolling for navigation links
+        navLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('button.md\\:hidden');
+        const mobileMenu = document.querySelector('.hidden.md\\:flex');
+
+        mobileMenuButton.addEventListener('click', function () {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+            mobileMenu.classList.toggle('flex-col');
+            mobileMenu.classList.toggle('absolute');
+            mobileMenu.classList.toggle('top-16');
+            mobileMenu.classList.toggle('left-0');
+            mobileMenu.classList.toggle('w-full');
+            mobileMenu.classList.toggle('bg-dark');
+            mobileMenu.classList.toggle('p-4');
+            mobileMenu.classList.toggle('space-y-4');
+        });
+
+        // Form submission
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                alert("Thank you for your message! I'll get back to you soon.");
+                this.reset();
+            });
+        }
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+
+</html>
