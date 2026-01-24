@@ -103,7 +103,7 @@
                         <img src="images/allyan.jpeg" alt="Your Image"
                             class="w-76 h-76 rounded-full object-cover border-4 border-dark"  />
                     </div> -->
-                    <!-- <div
+    <!-- <div
                         class="w-80 h-80 mx-auto bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-end">
                         <img src="images/allyan.jpeg" alt="Your Image"
                             class="w-76 h-76 rounded-full object-cover border-4 border-dark" />
@@ -112,61 +112,62 @@
                 </div>
             </div>
         </div>
-    </section> --> 
-<section id="home" class="pt-20 pb-20 px-6">
-    <div class="container mx-auto max-w-6xl">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-                <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
-                    Hi, I'm <span class="text-primary">Allyan Younis</span>
-                </h1>
+    </section> -->
+    <section id="home" class="pt-20 pb-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
+                        Hi, I'm <span class="text-primary">Allyan Younis</span>
+                    </h1>
 
-                <style>
-                    /* Keyframes for fade-in animation */
-                    @keyframes fadeIn {
-                        0% {
-                            opacity: 0;
-                            transform: translateY(20px);
+                    <style>
+                        /* Keyframes for fade-in animation */
+                        @keyframes fadeIn {
+                            0% {
+                                opacity: 0;
+                                transform: translateY(20px);
+                            }
+
+                            100% {
+                                opacity: 1;
+                                transform: translateY(0);
+                            }
                         }
 
-                        100% {
-                            opacity: 1;
-                            transform: translateY(0);
+                        /* Apply the animation to the text */
+                        .animate-fade-in {
+                            animation: fadeIn 1s ease-out;
                         }
-                    }
+                    </style>
 
-                    /* Apply the animation to the text */
-                    .animate-fade-in {
-                        animation: fadeIn 1s ease-out;
-                    }
-                </style>
-
-                <p class="text-xl text-gray-300 mb-8 leading-relaxed">
-                    Detail-oriented Computer Science graduate with hands-on experience in web development, machine
-                    learning, and AI. Skilled in Python, SQL, and data analysis, with a focus on Generative AI, Crew
-                    AI, and Agentic AI. Experienced with AWS (EC2, S3, & Security Groups) and DevOps tools,
-                    including CI/CD pipelines (Jenkins & GitHub Actions) and Docker. Eager to contribute to
-                    impactful projects and grow in collaborative tech environments.
-                </p>
-                <!-- <div class="flex flex-wrap gap-4">
+                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                        Detail-oriented Computer Science graduate with hands-on experience in web development, machine
+                        learning, and AI. Skilled in Python, SQL, and data analysis, with a focus on Generative AI, Crew
+                        AI, and Agentic AI. Experienced with AWS (EC2, S3, & Security Groups) and DevOps tools,
+                        including CI/CD pipelines (Jenkins & GitHub Actions) and Docker. Eager to contribute to
+                        impactful projects and grow in collaborative tech environments.
+                    </p>
+                    <!-- <div class="flex flex-wrap gap-4">
                     <button
                         class="bg-primary hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105">
                         View Projects
                     </button>
                 </div> -->
-            </div>
-
-            <div class="relative flex justify-end">
-                <!-- Increased the size of the circle and the image -->
-                <div class="w-128 h-128 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
-                    <img src="images/allyan.png" alt="Your Image"
-                        class="w-100 h-100 rounded-full object-cover border-4 border-dark" />
                 </div>
-                
+
+                <div class="relative flex justify-end">
+                    <!-- Increased the size of the circle and the image -->
+                    <div
+                        class="w-128 h-128 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
+                        <img src="images/allyan.png" alt="Your Image"
+                            class="w-100 h-100 rounded-full object-cover border-4 border-dark" />
+                    </div>
+
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
 
@@ -175,40 +176,72 @@
     <section id="about" class="py-20 bg-dark-light px-6">
         <div class="container mx-auto max-w-6xl">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">About Me</h2>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-
-
-                    <img src="images/pic.png" alt="Your Image">
-
-
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <!-- Image Column -->
+                <div class="relative group order-2 lg:order-1 h-full">
+                    <div
+                        class="absolute -inset-2 bg-gradient-to-r from-primary to-accent rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200">
+                    </div>
+                    <img src="images/pic.png" alt="Allyan Profile"
+                        class="relative w-full h-full object-cover rounded-2xl shadow-2xl transform transition duration-500 hover:scale-[1.01] z-10 border border-gray-800" />
                 </div>
-                <div>
-                    <h3 class="text-2xl font-semibold mb-6">Experience</h3>
-                    <p class="text-gray-300 mb-6 leading-relaxed">
-                        I completed an internship at T8 Launchpad, where I gained hands-on experience in LLM, Langchain,
-                        deep
-                        learning, and DevOps. During my time there, I worked on a variety of projects that helped me
-                        enhance my
-                        technical skills while contributing to the team's success. I was actively involved in developing
-                        solutions
-                        leveraging modern AI and cloud technologies, which allowed me to gain practical insights into
-                        real-world
-                        applications and the collaborative nature of tech-driven teams.
+
+                <!-- Content Column -->
+                <div class="order-1 lg:order-2">
+                    <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">My
+                            Journey</span>
+                    </h3>
+
+                    <p class="text-gray-300 mb-8 leading-relaxed text-lg">
+                        I am passionate about working with <span class="text-white font-semibold">agentic AI, Langchain,
+                            n8n</span>, and exploring new AI technologies. I thrive on experimenting with the latest
+                        advancements in machine learning and automation to build innovative, scalable solutions.
                     </p>
-                    <p class="text-gray-300 mb-8 leading-relaxed">
-                        I'm passionate about clean code, modern design patterns, and staying up-to-date with the latest
-                        technologies. When I'm not coding, you can find me contributing to open-source projects or
-                        exploring new frameworks.
-                    </p>
-                    <div class="grid grid-cols-2 gap-6">
-                        <div class="text-center p-4 bg-dark rounded-lg">
-                            <div class="text-3xl font-bold text-primary mb-2">20+</div>
-                            <div class="text-gray-400">Projects Completed</div>
+
+                    <div class="space-y-8 mb-10">
+                        <!-- Experience Item 1 -->
+                        <div class="relative pl-8 border-l-2 border-primary/30">
+                            <span
+                                class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-primary ring-4 ring-dark"></span>
+                            <h4 class="text-xl font-bold text-white">Associate AI/ML Engineer</h4>
+                            <p class="text-primary text-sm font-medium mb-2">Wamo Labs</p>
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                Contributing to audit tool and resume parser projects. Utilizing <span
+                                    class="text-gray-200">FastAPI</span> and <span
+                                    class="text-gray-200">React.js</span>.
+                                Working with advanced LLM models including Groq, Vertex AI, GPT-OSS 20B/120B, and
+                                Ollama.
+                            </p>
                         </div>
-                        <div class="text-center p-4 bg-dark rounded-lg">
-                            <div class="text-3xl font-bold text-accent mb-2">1+</div>
-                            <div class="text-gray-400">1 Year Experience</div>
+
+                        <!-- Experience Item 2 -->
+                        <div class="relative pl-8 border-l-2 border-accent/30">
+                            <span
+                                class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-accent ring-4 ring-dark"></span>
+                            <h4 class="text-xl font-bold text-white">AI Intern</h4>
+                            <p class="text-accent text-sm font-medium mb-2">T8 Launchpad</p>
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                Gained hands-on experience in LLM, Langchain, deep learning, and DevOps. Developed
+                                solutions
+                                leveraging modern AI and cloud technologies for real-world applications.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div
+                            class="p-5 bg-dark border border-gray-800 rounded-xl hover:border-primary/50 transition-all group hover:-translate-y-1">
+                            <div class="text-3xl font-bold text-white mb-1 group-hover:text-primary transition-colors">
+                                20+</div>
+                            <div class="text-gray-500 text-sm font-medium">Projects Completed</div>
+                        </div>
+                        <div
+                            class="p-5 bg-dark border border-gray-800 rounded-xl hover:border-accent/50 transition-all group hover:-translate-y-1">
+                            <div class="text-3xl font-bold text-white mb-1 group-hover:text-accent transition-colors">1+
+                            </div>
+                            <div class="text-gray-500 text-sm font-medium">Years Experience</div>
                         </div>
                     </div>
                 </div>
@@ -223,7 +256,7 @@
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 <!-- Python & FastAPI -->
                 <div
-                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300">
+                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 border border-transparent hover:border-blue-500/50">
                     <i class="fab fa-python text-4xl text-blue-400 mb-4"></i>
                     <h3 class="font-semibold mb-2">Python & FastAPI</h3>
                     <p class="text-gray-400 text-sm">Advanced</p>
@@ -231,7 +264,7 @@
 
                 <!-- Deep Learning ANN, CNN, RNN -->
                 <div
-                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300">
+                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/20 border border-transparent hover:border-orange-500/50">
                     <i class="fas fa-brain text-4xl text-orange-500 mb-4"></i>
                     <h3 class="font-semibold mb-2">Deep Learning (ANN, CNN, RNN)</h3>
                     <p class="text-gray-400 text-sm">Intermediate</p>
@@ -239,7 +272,7 @@
 
                 <!-- Python Libraries (Pandas, NumPy, Matplotlib, Seaborn) -->
                 <div
-                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300">
+                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-400/20 border border-transparent hover:border-blue-400/50">
                     <i class="fab fa-python text-4xl text-blue-400 mb-4"></i>
                     <h3 class="font-semibold mb-2">Python Libraries</h3>
                     <p class="text-gray-400 text-sm">Pandas, NumPy, Matplotlib, Seaborn</p>
@@ -247,7 +280,7 @@
 
                 <!-- Generative AI (LLM, Chatbots & RAG) -->
                 <div
-                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300">
+                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20 border border-transparent hover:border-purple-500/50">
                     <i class="fas fa-robot text-4xl text-purple-500 mb-4"></i>
                     <h3 class="font-semibold mb-2">Generative AI</h3>
                     <p class="text-gray-400 text-sm">LLM, Chatbots & RAG</p>
@@ -255,7 +288,7 @@
 
                 <!-- Scikit-learn & TensorFlow -->
                 <div
-                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300">
+                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-green-500/20 border border-transparent hover:border-green-500/50">
                     <i class="fab fa-python text-4xl text-green-500 mb-4"></i>
                     <h3 class="font-semibold mb-2">Scikit-learn & TensorFlow</h3>
                     <p class="text-gray-400 text-sm">Intermediate</p>
@@ -263,7 +296,7 @@
 
                 <!-- Git & GitHub -->
                 <div
-                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300">
+                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-red-500/20 border border-transparent hover:border-red-500/50">
                     <i class="fab fa-git-alt text-4xl text-red-500 mb-4"></i>
                     <h3 class="font-semibold mb-2">Git & GitHub</h3>
                     <p class="text-gray-400 text-sm">Advanced</p>
@@ -271,7 +304,7 @@
 
                 <!-- MySQL -->
                 <div
-                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300">
+                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-600/20 border border-transparent hover:border-blue-600/50">
                     <i class="fas fa-database text-4xl text-blue-500 mb-4"></i>
                     <h3 class="font-semibold mb-2">MySQL</h3>
                     <p class="text-gray-400 text-sm">Intermediate</p>
@@ -279,7 +312,7 @@
 
                 <!-- AWS (EC2, S3 & Security) -->
                 <div
-                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300">
+                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-yellow-500/20 border border-transparent hover:border-yellow-500/50">
                     <i class="fab fa-aws text-4xl text-yellow-500 mb-4"></i>
                     <h3 class="font-semibold mb-2">AWS (EC2, S3 & Security)</h3>
                     <p class="text-gray-400 text-sm">Intermediate</p>
@@ -287,7 +320,7 @@
 
                 <!-- Machine Learning (Supervised & Unsupervised Learning) -->
                 <div
-                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300">
+                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/20 border border-transparent hover:border-cyan-500/50">
                     <i class="fas fa-brain text-4xl text-cyan-500 mb-4"></i>
                     <h3 class="font-semibold mb-2">Machine Learning</h3>
                     <p class="text-gray-400 text-sm">Supervised & Unsupervised Learning</p>
@@ -295,7 +328,7 @@
 
                 <!-- Langchain, LangGraph & Crew AI -->
                 <div
-                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300">
+                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-orange-600/20 border border-transparent hover:border-orange-600/50">
                     <i class="fas fa-cogs text-4xl text-orange-600 mb-4"></i>
                     <h3 class="font-semibold mb-2">Agentic AI Framework</h3>
                     <p class="text-gray-400 text-sm">Langchain, LangGraph & Crew AI</p>
@@ -303,7 +336,7 @@
 
                 <!-- DevOps (CI/CD Pipelines) -->
                 <div
-                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300">
+                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-gray-500/20 border border-transparent hover:border-gray-500/50">
                     <i class="fab fa-github text-4xl text-gray-500 mb-4"></i>
                     <h3 class="font-semibold mb-2">DevOps & CI/CD Pipelines</h3>
                     <p class="text-gray-400 text-sm">Jenkins, GitHub Actions</p>
@@ -311,7 +344,7 @@
 
                 <!-- VS Code & Google Colab (Docker) -->
                 <div
-                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300">
+                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-green-600/20 border border-transparent hover:border-green-600/50">
                     <i class="fab fa-vuejs text-4xl text-green-600 mb-4"></i>
                     <h3 class="font-semibold mb-2">Tools</h3>
                     <p class="text-gray-400 text-sm">VS Code, Google Colab, Docker</p>
@@ -484,11 +517,11 @@
                             class="bg-gray-800 hover:bg-gray-700 w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-300">
                             <i class="fab fa-github"></i>
                         </a>
-                       
+
                     </div>
                 </div>
                 <!-- <div class="bg-dark-light p-8 rounded-xl"> -->
-                    <!-- <form class="space-y-6">
+                <!-- <form class="space-y-6">
                         <div>
                             <label for="name" class="block text-gray-300 mb-2">Name</label>
                             <input type="text" id="name"
@@ -512,8 +545,8 @@
                             Send Message
                         </button>
                     </form> -->
-                </div>
             </div>
+        </div>
         </div>
     </section>
 
@@ -537,7 +570,7 @@
                 </a> -->
             </div>
             <p class="text-gray-400">
-                
+
             </p>
         </div>
     </footer>
