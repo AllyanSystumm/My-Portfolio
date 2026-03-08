@@ -9,7 +9,8 @@
     <meta name="description" content="Modern responsive portfolio showcasing web development projects and skills">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -22,59 +23,119 @@
                         "dark-light": "#0F172A"
                     },
                     fontFamily: {
-                        'inter': ['Inter', 'sans-serif']
+                        'sans': ['Outfit', 'sans-serif']
                     }
                 }
             }
         }
     </script>
-    <style>
-        .lightbox-modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(5px);
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-        }
+    body {
+    background-color: #020617;
+    background-image:
+    radial-gradient(at 0% 0%, hsla(230, 89%, 62%, 0.15) 0, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(263, 70%, 50%, 0.15) 0, transparent 50%);
+    background-attachment: fixed;
+    }
 
-        .lightbox-content {
-            max-width: 90%;
-            max-height: 90vh;
-            border-radius: 0.75rem;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            transform: scale(0.9);
-            transition: transform 0.3s ease;
-        }
+    .glass-card {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-        .lightbox-active .lightbox-content {
-            transform: scale(1);
-        }
+    .glass-card:hover {
+    border-color: rgba(99, 102, 241, 0.5);
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.15);
+    transform: translateY(-8px);
+    }
 
-        .lightbox-close {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            color: white;
-            font-size: 2.5rem;
-            cursor: pointer;
-            transition: color 0.3s ease;
-            z-index: 1001;
-        }
+    .glow-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    }
 
-        .lightbox-close:hover {
-            color: #6366F1;
-        }
+    .glow-button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    }
+
+    .glow-button:hover::after {
+    opacity: 1;
+    }
+
+    .lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(2, 6, 23, 0.95);
+    backdrop-filter: blur(12px);
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    animation: fadeIn 0.3s ease-out;
+    }
+
+    @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+    }
+
+    .lightbox-content {
+    max-width: 90%;
+    max-height: 90vh;
+    border-radius: 1rem;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+    transform: scale(0.95);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .lightbox-modal.active .lightbox-content {
+    transform: scale(1);
+    }
+
+    .lightbox-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1001;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .lightbox-close:hover {
+    background: #6366F1;
+    transform: rotate(90deg);
+    color: white;
+    }
     </style>
 </head>
 
-<body class="min-h-screen bg-dark text-white font-inter">
+<body class="min-h-screen bg-dark text-white font-sans">
     <!-- Navigation -->
     <header class="fixed w-full bg-dark/90 backdrop-blur-sm z-50 border-b border-gray-800">
         <nav class="container mx-auto px-6 py-4">
@@ -98,115 +159,43 @@
     </header>
 
     <!-- Hero Section -->
-    <!-- <section id="home" class="pt-32 pb-20 px-6">
-        <div class="container mx-auto max-w-6xl">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
-                        Hi, I'm <span class="text-primary">Allyan Younis</span>
+    <section id="home" class="min-h-screen flex items-center pt-24 pb-20 px-6 relative overflow-hidden">
+        <div class="container mx-auto max-w-6xl relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1">
+                    <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight animate-fade-in">
+                        Hi, I'm <span
+                            class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">Allyan
+                            Younis</span>
                     </h1>
 
-                    <style>
-                        /* Keyframes for fade-in animation */
-                        @keyframes fadeIn {
-                            0% {
-                                opacity: 0;
-                                transform: translateY(20px);
-                            }
-
-                            100% {
-                                opacity: 1;
-                                transform: translateY(0);
-                            }
-                        }
-
-                        /* Apply the animation to the text */
-                        .animate-fade-in {
-                            animation: fadeIn 1s ease-out;
-                        }
-                    </style>
-
-                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">
-                      I'm a AI and Machine Learning Engineer, specializing in building AI-powered web applications. With hands-on experience in web development, machine learning, and AI, I am skilled in Python, SQL, and data analysis, focusing on Generative AI, Crew AI, and Agentic AI. Experienced with AWS (EC2, S3, & Security Groups) and DevOps tools, including CI/CD pipelines (Jenkins & GitHub Actions) and Docker. Eager to contribute to impactful projects and grow in collaborative tech environments.
+                    <p class="text-xl md:text-2xl text-gray-300 mb-10 leading-relaxed font-light">
+                        Detail-oriented <span class="text-primary font-semibold">AI & Machine Learning Engineer</span>,
+                        specializing in building intelligent web applications that merge <span
+                            class="text-accent font-semibold">Intelligence</span> with <span
+                            class="text-primary font-semibold">Elegance</span>.
                     </p>
-                    <div class="flex flex-wrap gap-4">
-                        <button
-                            class="bg-primary hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105">
-                            View Projects
-                        </button>
 
+                    <div class="flex flex-wrap gap-6">
+                        <a href="#projects"
+                            class="glow-button bg-primary hover:bg-indigo-600 text-white px-10 py-4 rounded-full font-bold transition-all duration-300 shadow-xl shadow-primary/20 flex items-center group">
+                            View My Work
+                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="#contact"
+                            class="glass-card text-white px-10 py-4 rounded-full font-bold hover:bg-white/5 transition-all duration-300 flex items-center">
+                            Contact Me
+                        </a>
                     </div>
                 </div>
-                <div class="relative">
-                     <div
-                        class="w-80 h-80 mx-auto bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
-                        <img src="images/allyan.jpeg" alt="Your Image"
-                            class="w-76 h-76 rounded-full object-cover border-4 border-dark"  />
-                    </div> -->
-    <!-- <div
-                        class="w-80 h-80 mx-auto bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-end">
-                        <img src="images/allyan.jpeg" alt="Your Image"
-                            class="w-76 h-76 rounded-full object-cover border-4 border-dark" />
-                    </div>
 
-                </div>
-            </div>
-        </div>
-    </section> -->
-    <section id="home" class="pt-20 pb-20 px-6">
-        <div class="container mx-auto max-w-6xl">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
-                        Hi, I'm <span class="text-primary">Allyan Younis</span>
-                    </h1>
-
-                    <style>
-                        /* Keyframes for fade-in animation */
-                        @keyframes fadeIn {
-                            0% {
-                                opacity: 0;
-                                transform: translateY(20px);
-                            }
-
-                            100% {
-                                opacity: 1;
-                                transform: translateY(0);
-                            }
-                        }
-
-                        /* Apply the animation to the text */
-                        .animate-fade-in {
-                            animation: fadeIn 1s ease-out;
-                        }
-                    </style>
-
-                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">
-                        Detail-oriented AI and Machine Learning Engineer, specializing in building AI-powered web
-                        applications.
-                        With hands-on experience in web development, machine learning, and AI, I am skilled in Python,
-                        SQL, and data analysis, focusing on Generative AI, Crew AI, and Agentic AI. Experienced with AWS
-                        (EC2, S3, & Security Groups) and DevOps tools, including CI/CD pipelines (Jenkins & GitHub
-                        Actions) and Docker. Eager to contribute to impactful projects and grow in collaborative tech
-                        environments.
-
-                    </p>
-                    <!-- <div class="flex flex-wrap gap-4">
-                    <button
-                        class="bg-primary hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105">
-                        View Projects
-                    </button>
-                </div> -->
-                </div>
-
-                <div class="relative flex justify-end">
-                    <!-- Increased the size of the circle and the image -->
+                <div class="order-1 lg:order-2 relative">
+                    <div class="absolute -inset-4 bg-primary/20 rounded-full blur-3xl opacity-50 animate-pulse"></div>
                     <div
-                        class="w-128 h-128 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
-                        <img src="images/allyan.png" alt="Your Image"
-                            class="w-100 h-100 rounded-full object-cover border-4 border-dark" />
+                        class="relative w-72 h-72 md:w-96 md:h-96 mx-auto glass-card rounded-full p-2 border-primary/20">
+                        <img src="images/allyan.jpeg" alt="Allyan Younis"
+                            class="w-full h-full rounded-full object-cover border-4 border-dark/50 shadow-2xl" />
                     </div>
-
                 </div>
             </div>
         </div>
@@ -216,75 +205,58 @@
 
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-dark-light px-6">
+    <section id="about" class="py-24 px-6 relative">
         <div class="container mx-auto max-w-6xl">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">About Me</h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
                 <!-- Image Column -->
-                <div class="relative group order-2 lg:order-1 h-full">
+                <div class="relative group">
                     <div
-                        class="absolute -inset-2 bg-gradient-to-r from-primary to-accent rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200">
+                        class="absolute -inset-4 bg-primary/20 rounded-2xl blur-2xl opacity-50 group-hover:opacity-100 transition duration-1000">
                     </div>
                     <img src="images/pic.png" alt="Allyan Profile"
-                        class="relative w-full h-full object-cover rounded-2xl shadow-2xl transform transition duration-500 hover:scale-[1.01] z-10 border border-gray-800" />
+                        class="relative w-full h-full object-cover rounded-2xl shadow-2xl glass-card border-white/10" />
                 </div>
 
                 <!-- Content Column -->
-                <div class="order-1 lg:order-2">
-                    <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
+                <div class="space-y-8">
+                    <h3 class="text-2xl font-bold text-white mb-6">
                         <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">My
                             Journey</span>
                     </h3>
-
-                    <p class="text-gray-300 mb-8 leading-relaxed text-lg">
-                        I am passionate about working with <span class="text-white font-semibold">agentic AI, Langchain,
-                            n8n</span>, and exploring new AI technologies. I thrive on experimenting with the latest
-                        advancements in machine learning and automation to build innovative, scalable solutions.
+                    <p class="text-gray-300 leading-relaxed text-lg">
+                        I am passionate about <span class="text-white font-semibold">Agentic AI, LangChain, and
+                            n8n</span>. I specialize in building intelligent systems that merge automation with
+                        real-world problem-solving, exploring the absolute edge of machine learning.
                     </p>
 
-                    <div class="space-y-8 mb-10">
-                        <!-- Experience Item 1 -->
+                    <div class="space-y-6">
                         <div class="relative pl-8 border-l-2 border-primary/30">
                             <span
                                 class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-primary ring-4 ring-dark"></span>
                             <h4 class="text-xl font-bold text-white">Associate AI/ML Engineer</h4>
-                            <p class="text-primary text-sm font-medium mb-2">Wamo Labs</p>
-                            <p class="text-gray-400 text-sm leading-relaxed">
-                                Contributing to audit tool and resume parser projects. Utilizing <span
-                                    class="text-gray-200">FastAPI</span> and <span
-                                    class="text-gray-200">React.js</span>.
-                                Working with advanced LLM models including Groq, Vertex AI, GPT-OSS 20B/120B, and
-                                Ollama.
-                            </p>
+                            <p class="text-primary text-sm font-medium mb-1">Wamo Labs</p>
+                            <p class="text-gray-400 text-sm">Working on advanced LLM projects, audit tools, and resume
+                                parsers using FastAPI and React.</p>
                         </div>
-
-                        <!-- Experience Item 2 -->
                         <div class="relative pl-8 border-l-2 border-accent/30">
                             <span
                                 class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-accent ring-4 ring-dark"></span>
                             <h4 class="text-xl font-bold text-white">AI Intern</h4>
-                            <p class="text-accent text-sm font-medium mb-2">T8 Launchpad</p>
-                            <p class="text-gray-400 text-sm leading-relaxed">
-                                Gained hands-on experience in LLM, Langchain, deep learning, and DevOps. Developed
-                                solutions
-                                leveraging modern AI and cloud technologies for real-world applications.
-                            </p>
+                            <p class="text-accent text-sm font-medium mb-1">T8 Launchpad</p>
+                            <p class="text-gray-400 text-sm">Focused on RAG systems, Fine-tuning, and Agentic workflows
+                                with modern cloud tech.</p>
                         </div>
                     </div>
 
-                    <!-- Stats -->
                     <div class="grid grid-cols-2 gap-4">
-                        <div
-                            class="p-5 bg-dark border border-gray-800 rounded-xl hover:border-primary/50 transition-all group hover:-translate-y-1">
-                            <div class="text-3xl font-bold text-white mb-1 group-hover:text-primary transition-colors">
-                                20+</div>
-                            <div class="text-gray-500 text-sm font-medium">Projects Completed</div>
+                        <div class="p-6 glass-card rounded-xl text-center">
+                            <h4 class="text-3xl font-bold text-primary mb-1">20+</h4>
+                            <p class="text-gray-400 text-sm">Projects</p>
                         </div>
-                        <div
-                            class="p-5 bg-dark border border-gray-800 rounded-xl hover:border-accent/50 transition-all group hover:-translate-y-1">
-                            <div class="text-3xl font-bold text-white mb-1 group-hover:text-accent transition-colors">1+
-                            </div>
-                            <div class="text-gray-500 text-sm font-medium">Years Experience</div>
+                        <div class="p-6 glass-card rounded-xl text-center">
+                            <h4 class="text-3xl font-bold text-accent mb-1">1+</h4>
+                            <p class="text-gray-400 text-sm">Years Exp.</p>
                         </div>
                     </div>
                 </div>
@@ -293,519 +265,319 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-20 px-6">
+    <section id="skills" class="py-24 px-6 relative bg-dark/50">
         <div class="container mx-auto max-w-6xl">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Skills & Technologies</h2>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <!-- Python & FastAPI -->
-                <div
-                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 border border-transparent hover:border-blue-500/50">
+                <div class="glass-card p-6 rounded-xl text-center">
                     <i class="fab fa-python text-4xl text-blue-400 mb-4"></i>
-                    <h3 class="font-semibold mb-2">Python & FastAPI</h3>
-                    <p class="text-gray-400 text-sm">Advanced</p>
+                    <h3 class="font-semibold mb-1">Python</h3>
+                    <p class="text-gray-500 text-xs uppercase tracking-widest">Advanced</p>
                 </div>
-
-                <!-- Deep Learning ANN, CNN, RNN -->
-                <div
-                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/20 border border-transparent hover:border-orange-500/50">
-                    <i class="fas fa-brain text-4xl text-orange-500 mb-4"></i>
-                    <h3 class="font-semibold mb-2">Deep Learning (ANN, CNN, RNN)</h3>
-                    <p class="text-gray-400 text-sm">Intermediate</p>
+                <div class="glass-card p-6 rounded-xl text-center">
+                    <i class="fas fa-brain text-4xl text-accent mb-4"></i>
+                    <h3 class="font-semibold mb-1">ML & DL</h3>
+                    <p class="text-gray-500 text-xs uppercase tracking-widest">TensorFlow, Scikit-learn</p>
                 </div>
-
-                <!-- Python Libraries (Pandas, NumPy, Matplotlib, Seaborn) -->
-                <div
-                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-400/20 border border-transparent hover:border-blue-400/50">
-                    <i class="fab fa-python text-4xl text-blue-400 mb-4"></i>
-                    <h3 class="font-semibold mb-2">Python Libraries</h3>
-                    <p class="text-gray-400 text-sm">Pandas, NumPy, Matplotlib, Seaborn</p>
-                </div>
-
-                <!-- Generative AI (LLM, Chatbots & RAG) -->
-                <div
-                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20 border border-transparent hover:border-purple-500/50">
+                <div class="glass-card p-6 rounded-xl text-center">
                     <i class="fas fa-robot text-4xl text-purple-500 mb-4"></i>
-                    <h3 class="font-semibold mb-2">Generative AI</h3>
-                    <p class="text-gray-400 text-sm">LLM, Chatbots & RAG</p>
+                    <h3 class="font-semibold mb-1">Generative AI</h3>
+                    <p class="text-gray-500 text-xs uppercase tracking-widest">Llama 3, GPT, RAG</p>
                 </div>
-
-                <!-- Scikit-learn & TensorFlow -->
-                <div
-                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-green-500/20 border border-transparent hover:border-green-500/50">
-                    <i class="fab fa-python text-4xl text-green-500 mb-4"></i>
-                    <h3 class="font-semibold mb-2">Scikit-learn & TensorFlow</h3>
-                    <p class="text-gray-400 text-sm">Intermediate</p>
+                <div class="glass-card p-6 rounded-xl text-center">
+                    <i class="fas fa-cogs text-4xl text-orange-500 mb-4"></i>
+                    <h3 class="font-semibold mb-1">Agentic AI</h3>
+                    <p class="text-gray-500 text-xs uppercase tracking-widest">LangChain, CrewAI</p>
                 </div>
-
-                <!-- Git & GitHub -->
-                <div
-                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-red-500/20 border border-transparent hover:border-red-500/50">
+                <div class="glass-card p-6 rounded-xl text-center">
+                    <i class="fas fa-bolt text-4xl text-green-400 mb-4"></i>
+                    <h3 class="font-semibold mb-1">FastAPI</h3>
+                    <p class="text-gray-500 text-xs uppercase tracking-widest">Backend Systems</p>
+                </div>
+                <div class="glass-card p-6 rounded-xl text-center">
+                    <i class="fab fa-react text-4xl text-blue-300 mb-4"></i>
+                    <h3 class="font-semibold mb-1">React & Next.js</h3>
+                    <p class="text-gray-500 text-xs uppercase tracking-widest">Frontend</p>
+                </div>
+                <div class="glass-card p-6 rounded-xl text-center">
+                    <i class="fas fa-database text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="font-semibold mb-1">Databases</h3>
+                    <p class="text-gray-500 text-xs uppercase tracking-widest">PostgreSQL, MySQL</p>
+                </div>
+                <div class="glass-card p-6 rounded-xl text-center">
                     <i class="fab fa-git-alt text-4xl text-red-500 mb-4"></i>
-                    <h3 class="font-semibold mb-2">Git & GitHub</h3>
-                    <p class="text-gray-400 text-sm">Advanced</p>
-                </div>
-
-                <!-- MySQL -->
-                <div
-                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-600/20 border border-transparent hover:border-blue-600/50">
-                    <i class="fas fa-database text-4xl text-blue-500 mb-4"></i>
-                    <h3 class="font-semibold mb-2">MySQL</h3>
-                    <p class="text-gray-400 text-sm">Intermediate</p>
-                </div>
-
-                <!-- AWS (EC2, S3 & Security) -->
-                <div
-                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-yellow-500/20 border border-transparent hover:border-yellow-500/50">
-                    <i class="fab fa-aws text-4xl text-yellow-500 mb-4"></i>
-                    <h3 class="font-semibold mb-2">AWS (EC2, S3 & Security)</h3>
-                    <p class="text-gray-400 text-sm">Intermediate</p>
-                </div>
-
-                <!-- Machine Learning (Supervised & Unsupervised Learning) -->
-                <div
-                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/20 border border-transparent hover:border-cyan-500/50">
-                    <i class="fas fa-brain text-4xl text-cyan-500 mb-4"></i>
-                    <h3 class="font-semibold mb-2">Machine Learning</h3>
-                    <p class="text-gray-400 text-sm">Supervised & Unsupervised Learning</p>
-                </div>
-
-                <!-- Langchain, LangGraph & Crew AI -->
-                <div
-                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-orange-600/20 border border-transparent hover:border-orange-600/50">
-                    <i class="fas fa-cogs text-4xl text-orange-600 mb-4"></i>
-                    <h3 class="font-semibold mb-2">Agentic AI Framework</h3>
-                    <p class="text-gray-400 text-sm">Langchain, LangGraph & Crew AI</p>
-                </div>
-
-                <!-- DevOps (CI/CD Pipelines) -->
-                <div
-                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-gray-500/20 border border-transparent hover:border-gray-500/50">
-                    <i class="fab fa-github text-4xl text-gray-500 mb-4"></i>
-                    <h3 class="font-semibold mb-2">DevOps & CI/CD Pipelines</h3>
-                    <p class="text-gray-400 text-sm">Jenkins, GitHub Actions</p>
-                </div>
-
-                <!-- VS Code & Google Colab (Docker) -->
-                <div
-                    class="bg-dark-light p-6 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-green-600/20 border border-transparent hover:border-green-600/50">
-                    <i class="fab fa-vuejs text-4xl text-green-600 mb-4"></i>
-                    <h3 class="font-semibold mb-2">Tools</h3>
-                    <p class="text-gray-400 text-sm">VS Code, Google Colab, Docker</p>
+                    <h3 class="font-semibold mb-1">DevOps</h3>
+                    <p class="text-gray-500 text-xs uppercase tracking-widest">Jenkins, Docker</p>
                 </div>
             </div>
         </div>
     </section>
 
-
     <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-dark-light px-6">
+    <section id="projects" class="py-24 px-6 relative">
         <div class="container mx-auto max-w-6xl">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Featured Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div
-                    class="bg-dark rounded-xl overflow-hidden shadow-2xl hover:transform hover:scale-105 transition-all duration-300">
-                    <a href="javascript:void(0)" onclick="openLightbox('images/ai.png')"
-                        class="relative group block overflow-hidden">
-                        <img src="images/ai.png" alt="AI Risk Analysis Engine"
-                            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
-                            loading="lazy" />
+                <!-- AI Risk Analysis Engine -->
+                <div class="glass-card rounded-xl overflow-hidden group">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="images/ai.png" alt="AI Risk Analysis"
+                            class="w-full h-full object-cover transition duration-500 group-hover:scale-110" />
                         <div
-                            class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <div class="bg-dark/80 px-4 py-2 rounded-full text-sm font-medium flex items-center">
-                                <i class="fas fa-search-plus mr-2"></i>
-                                <span>View Full Size</span>
-                            </div>
+                            class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <button onclick="openLightbox('images/ai.png')"
+                                class="bg-dark/80 px-6 py-2 rounded-full text-sm font-bold border border-white/10">View
+                                Details</button>
                         </div>
-                    </a>
-
-                    <a href="https://github.com/AllyanSystumm/AI-Risk-Analysis-Engine.git" target="_blank"
-                        rel="noopener noreferrer" class="block p-6 hover:bg-gray-800/50 transition-colors duration-300">
-                        <h3 class="text-xl font-semibold mb-3">AI Risk Analysis Engine</h3>
-                        <p class="text-gray-400 mb-4">I developed this AI Risk Analyzer Engine for real-time e-commerce
-                            fraud detection. Built using Next.js, NestJS, and Python (FastAPI), it leverages Llama 3.3
-                            to instantly verify orders, validate locations via ZipcodeStack, check for identity reuse,
-                            and dynamically calculate risk scores. It tracks high-risk orders for manual human analysis
-                            to prevent wastage and ensure secure transactions.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm">Next.js 15</span>
-                            <span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm">NestJS</span>
-                            <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm">FastAPI</span>
-                            <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-sm">PostgreSQL</span>
-                            <span class="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-sm">Groq
-                                SDK</span>
-                            <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-sm">Docker</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">AI Risk Analysis Engine</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-3">Real-time fraud detection using Llama 3.3,
+                            identifying high-risk e-commerce orders instantly.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded">Next.js</span>
+                            <span class="px-2 py-1 bg-accent/10 text-accent text-xs rounded">FastAPI</span>
+                            <span class="px-2 py-1 bg-purple-500/10 text-purple-400 text-xs rounded">Llama 3</span>
                         </div>
-                        <div
-                            class="flex items-center text-primary font-medium hover:text-blue-400 transition-colors duration-300">
-                            <span>View Project</span>
+                        <a href="https://github.com/AllyanSystumm/AI-Risk-Analysis-Engine.git" target="_blank"
+                            class="flex items-center text-primary hover:text-white transition-colors">
+                            <span>View Source</span>
                             <i class="fab fa-github ml-2"></i>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
                 </div>
 
-                <div
-                    class="bg-dark rounded-xl overflow-hidden shadow-2xl hover:transform hover:scale-105 transition-all duration-300">
-                    <a href="javascript:void(0)" onclick="openLightbox('images/ai_resume.png')"
-                        class="relative group block overflow-hidden">
-                        <img src="images/ai_resume.png" alt="AI-RADAR-RESUME"
-                            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
-                            loading="lazy" />
+                <!-- AI Resume Radar -->
+                <div class="glass-card rounded-xl overflow-hidden group">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="images/ai_resume.png" alt="AI Resume"
+                            class="w-full h-full object-cover transition duration-500 group-hover:scale-110" />
                         <div
-                            class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <div class="bg-dark/80 px-4 py-2 rounded-full text-sm font-medium flex items-center">
-                                <i class="fas fa-search-plus mr-2"></i>
-                                <span>View Full Size</span>
-                            </div>
+                            class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <button onclick="openLightbox('images/ai_resume.png')"
+                                class="bg-dark/80 px-6 py-2 rounded-full text-sm font-bold border border-white/10">View
+                                Details</button>
                         </div>
-                    </a>
-
-                    <a href="https://github.com/AllyanSystumm/AI-RADAR-RESUME.git" target="_blank"
-                        rel="noopener noreferrer" class="block p-6 hover:bg-gray-800/50 transition-colors duration-300">
-                        <h3 class="text-xl font-semibold mb-3">AI-Radar-Resume</h3>
-                        <p class="text-gray-400 mb-4">I made an AI‑powered resume parser. It extracts resume data, ranks
-                            candidates, and even suggests targeted interview questions recruiters should ask based on
-                            candidate skills and job fit. I built with FastAPI backend, Next.js/Tailwind frontend, Groq
-                            LLM, and Docker.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm">Next.js</span>
-                            <span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm">FastAPI</span>
-                            <span class="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-sm">Groq
-                                LLM</span>
-                            <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-sm">Docker</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">AI-Radar-Resume</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-3">Intelligent parsing and candidate ranking
+                            system with skill-based interview generation.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded">FastAPI</span>
+                            <span class="px-2 py-1 bg-accent/10 text-accent text-xs rounded">Groq LLM</span>
+                            <span class="px-2 py-1 bg-blue-500/10 text-blue-400 text-xs rounded">Docker</span>
                         </div>
-                        <div
-                            class="flex items-center text-primary font-medium hover:text-blue-400 transition-colors duration-300">
-                            <span>View Project</span>
+                        <a href="https://github.com/AllyanSystumm/AI-RADAR-RESUME.git" target="_blank"
+                            class="flex items-center text-primary hover:text-white transition-colors">
+                            <span>View Source</span>
                             <i class="fab fa-github ml-2"></i>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
                 </div>
 
-                <div
-                    class="bg-dark rounded-xl overflow-hidden shadow-2xl hover:transform hover:scale-105 transition-all duration-300">
-                    <a href="javascript:void(0)" onclick="openLightbox('images/chatbot.png')"
-                        class="relative group block overflow-hidden">
-                        <img src="images/chatbot.png" alt="E-Commerce Chatbot"
-                            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
-                            loading="lazy" />
+                <!-- E-Commerce Chatbot -->
+                <div class="glass-card rounded-xl overflow-hidden group">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="images/chatbot.png" alt="Chatbot"
+                            class="w-full h-full object-cover transition duration-500 group-hover:scale-110" />
                         <div
-                            class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <div class="bg-dark/80 px-4 py-2 rounded-full text-sm font-medium flex items-center">
-                                <i class="fas fa-search-plus mr-2"></i>
-                                <span>View Full Size</span>
-                            </div>
+                            class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <button onclick="openLightbox('images/chatbot.png')"
+                                class="bg-dark/80 px-6 py-2 rounded-full text-sm font-bold border border-white/10">View
+                                Details</button>
                         </div>
-                    </a>
-
-                    <a href="https://github.com/AllyanSystumm/E-Commerce-chatbot.git" target="_blank"
-                        rel="noopener noreferrer" class="block p-6 hover:bg-gray-800/50 transition-colors duration-300">
-                        <h3 class="text-xl font-semibold mb-3">E-Commerce Chatbot</h3>
-                        <p class="text-gray-400 mb-4">E‑Commerce Chatbot that stores website data in PostgreSQL via
-                            SQLAlchemy and responds to customer queries after training the model for best results. Built
-                            with Next.js (React/Tailwind/Framer Motion), NestJS BFF, FastAPI AI backend, Groq LLM, and
-                            Docker/Compose.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm">Next.js</span>
-                            <span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm">NestJS</span>
-                            <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm">FastAPI</span>
-                            <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-sm">PostgreSQL</span>
-                            <span class="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-sm">Groq
-                                LLM</span>
-                            <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-sm">Docker</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">E-Commerce Chatbot</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-3">Conversational AI for retail, integrated with
+                            PostgreSQL and trained on production datasets.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded">NestJS</span>
+                            <span class="px-2 py-1 bg-accent/10 text-accent text-xs rounded">PostgreSQL</span>
+                            <span class="px-2 py-1 bg-purple-500/10 text-purple-400 text-xs rounded">SQLAlchemy</span>
                         </div>
-                        <div
-                            class="flex items-center text-primary font-medium hover:text-blue-400 transition-colors duration-300">
-                            <span>View Project</span>
+                        <a href="https://github.com/AllyanSystumm/E-Commerce-chatbot.git" target="_blank"
+                            class="flex items-center text-primary hover:text-white transition-colors">
+                            <span>View Source</span>
                             <i class="fab fa-github ml-2"></i>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
                 </div>
 
-                <div
-                    class="bg-dark rounded-xl overflow-hidden shadow-2xl hover:transform hover:scale-105 transition-all duration-300">
-                    <a href="javascript:void(0)" onclick="openLightbox('images/blog.png')"
-                        class="relative group block overflow-hidden">
-                        <img src="images/blog.png" alt="AI-Powered Blogging Platform"
-                            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
-                            loading="lazy" />
+                <!-- AI Blogging Platform -->
+                <div class="glass-card rounded-xl overflow-hidden group">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="images/blog.png" alt="Blog"
+                            class="w-full h-full object-cover transition duration-500 group-hover:scale-110" />
                         <div
-                            class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <div class="bg-dark/80 px-4 py-2 rounded-full text-sm font-medium flex items-center">
-                                <i class="fas fa-search-plus mr-2"></i>
-                                <span>View Full Size</span>
-                            </div>
+                            class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <button onclick="openLightbox('images/blog.png')"
+                                class="bg-dark/80 px-6 py-2 rounded-full text-sm font-bold border border-white/10">View
+                                Details</button>
                         </div>
-                    </a>
-
-                    <a href="https://github.com/AllyanSystumm/AI-Powered-Blogging-Platform.git" target="_blank"
-                        rel="noopener noreferrer" class="block p-6 hover:bg-gray-800/50 transition-colors duration-300">
-                        <h3 class="text-xl font-semibold mb-3">AI-Powered Blogging Platform</h3>
-                        <p class="text-gray-400 mb-4">i developed this project in which I built an AI-Powered Blogging
-                            Platform. It features one-click AI summary generation for long posts, intelligent
-                            AI-suggested comments, and an AI Writer tool that helps creators generate full-length,
-                            styled blog posts from simple topics. Built with Django, Bootstrap, and Groq Cloud API, it's
-                            a production-ready platform with Gunicorn and Nginx deployment.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm">Django 5.2</span>
-                            <span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm">Bootstrap 5.3</span>
-                            <span class="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-sm">Groq Cloud
-                                API</span>
-                            <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-sm">Gunicorn</span>
-                            <span class="bg-gray-500/20 text-gray-400 px-3 py-1 rounded-full text-sm">Nginx</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">AI-Powered Blog</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-3">Full-stack Django platform with AI summary
+                            generation and intelligent content suggestions.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded">Django</span>
+                            <span class="px-2 py-1 bg-accent/10 text-accent text-xs rounded">Groq API</span>
+                            <span class="px-2 py-1 bg-green-500/10 text-green-400 text-xs rounded">Bootstrap</span>
                         </div>
-                        <div
-                            class="flex items-center text-primary font-medium hover:text-blue-400 transition-colors duration-300">
-                            <span>View Project</span>
+                        <a href="https://github.com/AllyanSystumm/AI-Powered-Blogging-Platform.git" target="_blank"
+                            class="flex items-center text-primary hover:text-white transition-colors">
+                            <span>View Source</span>
                             <i class="fab fa-github ml-2"></i>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
                 </div>
 
-                <div
-                    class="bg-dark rounded-xl overflow-hidden shadow-2xl hover:transform hover:scale-105 transition-all duration-300">
-                    <a href="javascript:void(0)" onclick="openLightbox('images/youtube_chatbot.jpeg')"
-                        class="relative group block overflow-hidden">
-                        <img src="images/youtube_chatbot.jpeg" alt="Youtube Chatbot"
-                            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
-                            loading="lazy" />
+                <!-- Jenkins CI/CD -->
+                <div class="glass-card rounded-xl overflow-hidden group">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="images/jenkins.png" alt="Jenkins"
+                            class="w-full h-full object-cover transition duration-500 group-hover:scale-110" />
                         <div
-                            class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <div class="bg-dark/80 px-4 py-2 rounded-full text-sm font-medium flex items-center">
-                                <i class="fas fa-search-plus mr-2"></i>
-                                <span>View Full Size</span>
-                            </div>
+                            class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <button onclick="openLightbox('images/jenkins.png')"
+                                class="bg-dark/80 px-6 py-2 rounded-full text-sm font-bold border border-white/10">View
+                                Details</button>
                         </div>
-                    </a>
-
-                    <a href="https://github.com/AllyanSystumm/Youtube-Chatbot-by-RAG.git" target="_blank"
-                        rel="noopener noreferrer" class="block p-6 hover:bg-gray-800/50 transition-colors duration-300">
-                        <h3 class="text-xl font-semibold mb-3">Youtube Chatbot</h3>
-                        <p class="text-gray-400 mb-4">Made a YouTube chatbot using LangChain and Hugging Face API to
-                            answer any questions about YouTube videos with real-time updates, powered by an LLM model.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm">Python</span>
-                            <span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm">Langchain</span>
-                            <span class="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-sm">LLM
-                                model</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">CI/CD with Jenkins</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-3">Automated pipeline for continuous integration
+                            and deployment on AWS EC2 instances.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2 py-1 bg-red-500/10 text-red-400 text-xs rounded">Jenkins</span>
+                            <span class="px-2 py-1 bg-blue-500/10 text-blue-400 text-xs rounded">EC2</span>
+                            <span class="px-2 py-1 bg-gray-500/10 text-gray-400 text-xs rounded">AWS</span>
                         </div>
-                        <div
-                            class="flex items-center text-primary font-medium hover:text-blue-400 transition-colors duration-300">
-                            <span>View Project</span>
+                        <a href="https://github.com/AllyanSystumm/CI-and-CD-by-jenkins-pipeline.git" target="_blank"
+                            class="flex items-center text-primary hover:text-white transition-colors">
+                            <span>View Source</span>
                             <i class="fab fa-github ml-2"></i>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
                 </div>
 
-                <div
-                    class="bg-dark rounded-xl overflow-hidden shadow-2xl hover:transform hover:scale-105 transition-all duration-300">
-                    <a href="javascript:void(0)" onclick="openLightbox('images/movie_recommend.png')"
-                        class="relative group block overflow-hidden">
-                        <img src="images/movie_recommend.png" alt="Movie Recommendation System"
-                            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
-                            loading="lazy" />
+                <!-- Email Filter -->
+                <div class="glass-card rounded-xl overflow-hidden group">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="images/email.jpg" alt="Email"
+                            class="w-full h-full object-cover transition duration-500 group-hover:scale-110" />
                         <div
-                            class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <div class="bg-dark/80 px-4 py-2 rounded-full text-sm font-medium flex items-center">
-                                <i class="fas fa-search-plus mr-2"></i>
-                                <span>View Full Size</span>
-                            </div>
+                            class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <button onclick="openLightbox('images/email.jpg')"
+                                class="bg-dark/80 px-6 py-2 rounded-full text-sm font-bold border border-white/10">View
+                                Details</button>
                         </div>
-                    </a>
-                    <a href="https://github.com/AllyanSystumm/Movie-Recommendation-System.git" target="_blank"
-                        rel="noopener noreferrer" class="block p-6 hover:bg-gray-800/50 transition-colors duration-300">
-                        <h3 class="text-xl font-semibold mb-3">Movie Recommendation System</h3>
-                        <p class="text-gray-400 mb-4">Built a Movie Recommendation System using KNN and LLM models,
-                            integrated with Streamlit for an interactive interface, all powered by Python.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full text-sm">Python</span>
-                            <span class="bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full text-sm">KNN</span>
-                            <span class="bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-sm">Machine
-                                Learning</span>
-                            <span class="bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full text-sm">LLM
-                                model</span>
-                            <span class="bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-sm">Kaggle
-                                dataset</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Email Spam Filter</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-3">Machine Learning classifier for spam
+                            detection using feature selection and KNN models.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded">Python</span>
+                            <span class="px-2 py-1 bg-accent/10 text-accent text-xs rounded">Scikit-learn</span>
+                            <span class="px-2 py-1 bg-white/10 text-white text-xs rounded">NLP</span>
                         </div>
-                        <div
-                            class="flex items-center text-primary font-medium hover:text-blue-400 transition-colors duration-300">
-                            <span>View Project</span>
+                        <a href="https://github.com/AllyanSystumm/Email_Classification.git" target="_blank"
+                            class="flex items-center text-primary hover:text-white transition-colors">
+                            <span>View Source</span>
                             <i class="fab fa-github ml-2"></i>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="container mx-auto max-w-6xl">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16"></h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div
-                        class="bg-dark rounded-xl overflow-hidden shadow-2xl hover:transform hover:scale-105 transition-all duration-300">
-                        <a href="javascript:void(0)" onclick="openLightbox('images/email.jpg')"
-                            class="relative group block overflow-hidden">
-                            <img src="images/email.jpg" alt="Email Spam Classification"
-                                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
-                                loading="lazy" />
-                            <div
-                                class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                <div class="bg-dark/80 px-4 py-2 rounded-full text-sm font-medium flex items-center">
-                                    <i class="fas fa-search-plus mr-2"></i>
-                                    <span>View Full Size</span>
-                                </div>
-                            </div>
-                        </a>
-
-                        <a href="https://github.com/AllyanSystumm/Email_Classification.git" target="_blank"
-                            rel="noopener noreferrer"
-                            class="block p-6 hover:bg-gray-800/50 transition-colors duration-300">
-                            <h3 class="text-xl font-semibold mb-3">Email Spam Classification</h3>
-                            <p class="text-gray-400 mb-4">Developed an email spam classification model using KNN, Kaggle
-                                datasets, and entropy-based feature selection in Python.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm">Python</span>
-                                <span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm">Naive Bayes</span>
-                                <span class="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-sm">kaggle
-                                    dataset</span>
-                                <span class="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-sm">Machine
-                                    Learning</span>
-                            </div>
-                            <div
-                                class="flex items-center text-primary font-medium hover:text-blue-400 transition-colors duration-300">
-                                <span>View Project</span>
-                                <i class="fab fa-github ml-2"></i>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div
-                        class="bg-dark rounded-xl overflow-hidden shadow-2xl hover:transform hover:scale-105 transition-all duration-300">
-                        <a href="javascript:void(0)" onclick="openLightbox('images/jenkins.png')"
-                            class="relative group block overflow-hidden">
-                            <img src="images/jenkins.png" alt="CI/CD pipeline using Jenkins"
-                                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
-                                loading="lazy" />
-                            <div
-                                class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                <div class="bg-dark/80 px-4 py-2 rounded-full text-sm font-medium flex items-center">
-                                    <i class="fas fa-search-plus mr-2"></i>
-                                    <span>View Full Size</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="https://github.com/AllyanSystumm/CI-and-CD-by-jenkins-pipeline.git" target="_blank"
-                            rel="noopener noreferrer"
-                            class="block p-6 hover:bg-gray-800/50 transition-colors duration-300">
-                            <h3 class="text-xl font-semibold mb-3">CI/CD pipeliine using Jenkins</h3>
-                            <p class="text-gray-400 mb-4">I implemented a CI/CD pipeline using Jenkins to automate code
-                                integration, testing, and deployment for seamless software delivery.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full text-sm">Jenkins</span>
-                                <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm">EC2</span>
-                                <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-sm">AWS</span>
-
-                            </div>
-                            <div
-                                class="flex items-center text-primary font-medium hover:text-blue-400 transition-colors duration-300">
-                                <span>View Project</span>
-                                <i class="fab fa-github ml-2"></i>
-                            </div>
-                        </a>
-                    </div>
-
-                </div>
+        </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 px-6">
+    <section id="contact" class="py-24 px-6 relative">
         <div class="container mx-auto max-w-4xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Contact Me </h2>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div>
-                    <h3 class="text-2xl font-semibold mb-6">Let's Work Together</h3>
-                    <p class="text-gray-300 mb-8 leading-relaxed">
-                        I'm always interested in new opportunities and exciting projects. Whether you have a question or
-                        just want to say hi, I'll try my best to get back to you!
-                    </p>
-                    <div class="space-y-4">
-                        <div class="flex items-center space-x-4">
-                            <i class="fas fa-envelope text-primary text-xl"></i>
-                            <span class="text-gray-300">
-                                <a href="mailto:allyanyounis@gmail.com" class="text-gray-300">allyanyounis@gmail.com</a>
-                            </span>
+            <div class="glass-card p-8 md:p-12 rounded-3xl">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Contact Me</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-6">Let's Work Together</h3>
+                        <p class="text-gray-300 mb-8 leading-relaxed">
+                            I'm always interested in new opportunities and exciting projects. Whether you have a
+                            question
+                            or just want to say hi, I'll try my best to get back to you!
+                        </p>
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4 group">
+                                <div
+                                    class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                                    <i class="fas fa-envelope text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500 uppercase tracking-wider">Email</p>
+                                    <a href="mailto:allyanyounis@gmail.com"
+                                        class="text-white hover:text-primary transition-colors">allyanyounis@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4 group">
+                                <div
+                                    class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                                    <i class="fas fa-phone text-accent text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500 uppercase tracking-wider">Phone</p>
+                                    <span class="text-white">03290405968</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4 group">
+                                <div
+                                    class="w-12 h-12 bg-red-500/10 rounded-xl flex items-center justify-center group-hover:bg-red-500/20 transition-colors">
+                                    <i class="fas fa-map-marker-alt text-red-500 text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500 uppercase tracking-wider">Location</p>
+                                    <span class="text-white">129, B block, Military Account, Lahore</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="flex items-center space-x-4">
-                            <i class="fas fa-phone text-accent text-xl"></i>
-                            <span class="text-gray-300">03290405968</span>
+                        <div class="flex space-x-4 mt-12">
+                            <a href="https://www.linkedin.com/in/allyan-younis-471231278/"
+                                class="glow-button bg-white/5 hover:bg-primary w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 border border-white/10 hover:border-transparent">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/AllyanSystumm"
+                                class="glow-button bg-white/5 hover:bg-white/20 w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 border border-white/10 hover:border-transparent">
+                                <i class="fab fa-github"></i>
+                            </a>
                         </div>
-                        <div class="flex items-center space-x-4">
-                            <i class="fas fa-map-marker-alt text-red-500 text-xl"></i>
-                            <span class="text-gray-300">129,B block,Military Account, Lahore</span>
-                        </div>
-                    </div>
-                    <div class="flex space-x-4 mt-8"> <a href="https://www.linkedin.com/in/allyan-younis-471231278/"
-                            class="bg-gray-800 hover:bg-gray-700 w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-300">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://github.com/AllyanSystumm"
-                            class="bg-gray-800 hover:bg-gray-700 w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-300">
-                            <i class="fab fa-github"></i>
-                        </a>
-
                     </div>
                 </div>
-                <!-- <div class="bg-dark-light p-8 rounded-xl"> -->
-                <!-- <form class="space-y-6">
-                        <div>
-                            <label for="name" class="block text-gray-300 mb-2">Name</label>
-                            <input type="text" id="name"
-                                class="w-full bg-dark border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors duration-300"
-                                placeholder="Your Name">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-gray-300 mb-2">Email</label>
-                            <input type="email" id="email"
-                                class="w-full bg-dark border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors duration-300"
-                                placeholder="your.email@example.com">
-                        </div>
-                        <div>
-                            <label for="message" class="block text-gray-300 mb-2">Message</label>
-                            <textarea id="message" rows="5"
-                                class="w-full bg-dark border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors duration-300"
-                                placeholder="Your message..."></textarea>
-                        </div>
-                        <button type="submit"
-                            class="w-full bg-primary hover:bg-blue-600 text-white py-3 rounded-lg font-medium transition-all duration-300">
-                            Send Message
-                        </button>
-                    </form> -->
             </div>
         </div>
-        </div>
+    </section>
+    </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark-light border-t border-gray-800 py-8 px-6">
-        <div class="container mx-auto max-w-6xl text-center">
-            <div class="flex justify-center space-x-6 mb-6">
-                <a href="https://www.linkedin.com/in/allyan-younis-471231278/"
-                    class="text-gray-400 hover:text-primary transition-colors duration-300">
-                    <i class="fab fa-linkedin-in text-xl"></i>
-                </a>
-                <a href="https://github.com/AllyanSystumm"
-                    class="text-gray-400 hover:text-white transition-colors duration-300">
-                    <i class="fab fa-github text-xl"></i>
-                </a>
-                <!-- <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">
-                    <i class="fab fa-twitter text-xl"></i>
-                </a>
-                <a href="#" class="text-gray-400 hover:text-pink-500 transition-colors duration-300">
-                    <i class="fab fa-instagram text-xl"></i>
-                </a> -->
+    <footer class="py-12 px-6 relative border-t border-white/5">
+        <div class="container mx-auto max-w-6xl">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-center md:text-left">
+                    <a href="#" class="text-xl font-bold text-primary">My Portfolio</a>
+                    <p class="text-gray-500 text-sm mt-2">&copy; 2024 Allyan Younis. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://www.linkedin.com/in/allyan-younis-471231278/"
+                        class="text-gray-400 hover:text-primary transition-colors duration-300">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="https://github.com/AllyanSystumm"
+                        class="text-gray-400 hover:text-white transition-colors duration-300">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                </div>
             </div>
-            <p class="text-gray-400">
-
-            </p>
         </div>
     </footer>
 
